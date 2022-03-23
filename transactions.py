@@ -34,7 +34,7 @@ class Transaction():
     def select_one(self,rowid):
         con= sqlite3.connect(self.dbfile)
         cur = con.cursor()
-        cur.execute("SELECT rowid,* from transactions where rowid=(?)",(rowid,) )
+        cur.execute("SELECT * from transactions where rowid=(?)",(rowid,) )
         tuples = cur.fetchall()
         con.commit()
         con.close()

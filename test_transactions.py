@@ -45,13 +45,14 @@ def test_add(small_db):
             'amount': 1,
             'category': 'testing_category',
             'date': 20220000,
-            'desc':'see if it works',
+            'description':'see if it works',
             }
     cats0 = small_db.select_all()
     rowid = small_db.add(cat0)
     cats1 = small_db.select_all()
     assert len(cats1) == len(cats0) + 1
     cat1 = small_db.select_one(rowid)
+    assert cat1['item']==cat0['item']
     assert cat1['item']==cat0['item']
     assert cat1['amount']==cat0['amount']
     assert cat1['category']==cat0['category']
