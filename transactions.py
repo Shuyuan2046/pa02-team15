@@ -108,4 +108,22 @@ class Transaction():
         con.close()
         return to_trans_dict_list(tuples)
 
+    def summarize_by_recent_year(self, year):
+        con= sqlite3.connect(self.dbfile)
+        cur = con.cursor()
+        cur.execute('''SELECT * from transactions WHERE (date/10000)>=(?);''',(year) )
+        tuples = cur.fetchall()
+        con.commit()
+        con.close()
+        return to_trans_dict_list(tuples)
+
+    def show_db(self):
+        con= sqlite3.connect(self.dbfile)
+        cur = con.cursor()
+        cur.execute('''SELECT * from transactions;''')
+        tuples = cur.fetchall()
+        con.commit()
+        con.close()
+        return to_trans_dict_list(tuples)
+
     

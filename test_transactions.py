@@ -79,3 +79,15 @@ def test_delete(small_db):
 
     assert len(cats0)==len(cats2)
     assert len(cats2) == len(cats1)-1  
+
+@pytest.mark.showdb
+def test_showdb():
+    ''' teting the to_trans_dict function '''
+    a = to_trans_dict(('testItem',1,'testCategory',20220318,'testDesc'))
+    assert a['item']=='testItem'
+    assert a['amount']==1
+    assert a['category']=='testCategory'
+    assert a['date']==20220318
+    assert a['description']=='testDesc'
+
+

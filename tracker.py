@@ -54,6 +54,9 @@ menu = '''
 9. summarize transactions by year
 10. summarize transactions by category
 11. print this menu
+12. upate transaction
+13. summarize transactions by recent years
+14. show db
 '''
 
 
@@ -122,6 +125,13 @@ def process_choice(choice):
         description = input("new description of the transaction: ")
         trans = {'item': item, 'amount': amount, 'category': cat, 'date': date, 'description': description}
         transactions.update(trans)
+    elif choice=='13':
+        year = int(input("enter the start year of transaction you want to see: "))
+        trans = transactions.summarize_by_recent_year(year)
+        print_transactions(trans)
+    elif choice=='14':
+        trans = transactions.show_db()
+        print_transactions(trans)
     else:
         print("choice",choice,"not yet implemented")
 
