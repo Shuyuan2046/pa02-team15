@@ -116,6 +116,7 @@ def test_showdb():
     assert a['category']=='testCategory'
     assert a['date']==20220318
     assert a['description']=='testDesc'
+    assert len(a) == 5
 
 #Lingyu Liu
 @pytest.mark.summarize_by_name_year
