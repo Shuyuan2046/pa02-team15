@@ -55,7 +55,7 @@ class Transaction():
     def update(self,rowid,item):
         con= sqlite3.connect(self.dbfile)
         cur = con.cursor()
-        cur.execute('''UPDATE categories
+        cur.execute('''UPDATE transactions
                         SET item=(?), amount=(?), category=(?),
                         date=(?), description=(?)
                         WHERE rowid=(?);

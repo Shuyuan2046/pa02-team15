@@ -119,6 +119,20 @@ def test_summarize_by_category(small_db):
     ans = small_db.summarize_by_category('food')
     assert len(ans) == 2
 
+#Jing Cheng
+def test_update(small_db):
+    ''' add a category to db, the select it, then update it'''
+    prev = small_db.select_one(1)
+    assert prev['item'] == 'banana'
+    cat0 = {'item':'testing_item',
+            'amount': 1,
+            'category':'testing_category',
+            'date':20220318,
+            'description':'see if it works',
+            }
+    small_db.update(1,cat0)
+    ans = small_db.select_one(1)
+    assert ans['item'] == 'testing_item'
 
 
 #Lingyu Liu
