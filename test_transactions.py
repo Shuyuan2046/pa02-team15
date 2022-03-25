@@ -105,6 +105,7 @@ def test_summarize_by_category(small_db):
     assert len(ans) == 2
 
 
+
 #Lingyu Liu
 @pytest.mark.showdb
 def test_showdb():
@@ -123,9 +124,19 @@ def test_summarize_by_name_year(small_db):
     ans = small_db.summarize_by_name_year('apple', 2022)
     assert len(ans) == 1
 
-#Lingyu Liu
-@pytest.mark.summarize_by_recent_year
-def test_summarize_by_recent_year(small_db):
-    ''' teting the summarize_by_month_cat function '''
-    ans = small_db.summarize_by_recent_year(2022)
+
+
+
+#Lu Hao
+@pytest.mark.summarize_by_amount
+def test_summarize_by_category(small_db):
+    ''' teting the summarize_by_amount function '''
+    ans = small_db.summarize_by_amount('1')
     assert len(ans) == 3
+    
+#Lu Hao
+@pytest.mark.check_item
+def test_check_item(small_db):
+    ''' teting the summarize_by_amount function '''
+    ans = small_db.check_item('apple')
+    assert len(ans) == 1

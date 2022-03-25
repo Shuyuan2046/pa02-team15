@@ -51,7 +51,7 @@ class Transaction():
         con.commit()
         con.close()
         return last_rowid[0]
-    
+    #Shuyuan Wang
     def update(self,rowid,item):
         con= sqlite3.connect(self.dbfile)
         cur = con.cursor()
@@ -125,7 +125,8 @@ class Transaction():
         con.commit()
         con.close()
         return to_trans_dict_list(tuples)
-
+    
+    #Lu Hao
     def summarize_by_amount(self, amount):
         con= sqlite3.connect(self.dbfile)
         cur = con.cursor()
@@ -135,6 +136,7 @@ class Transaction():
         con.close()
         return to_trans_dict_list(tuples)
     
+    #Lu Hao
     def check_item(self, item):
         con= sqlite3.connect(self.dbfile)
         cur = con.cursor()
@@ -144,5 +146,14 @@ class Transaction():
         con.close()
         return to_trans_dict_list(tuples)
 
+    #Jing Cheng
+    def summarize_by_month_cat(self, month, cat):
+        con= sqlite3.connect(self.dbfile)
+        cur = con.cursor()
+        cur.execute('''SELECT * from transactions WHERE (date/100) % 100=(?) AND category=(?);''',(month,cat,) )
+        tuples = cur.fetchall()
+        con.commit()
+        con.close()
+        return to_trans_dict_list(tuples)
 
     
