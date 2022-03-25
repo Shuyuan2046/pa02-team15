@@ -145,10 +145,10 @@ class Transaction():
         return to_trans_dict_list(tuples)
 
     #Jing Cheng
-    def summarize_by_month_cat(self, month, category):
+    def summarize_by_month_cat(self, month, cat):
         con= sqlite3.connect(self.dbfile)
         cur = con.cursor()
-        cur.execute('''SELECT * from transactions WHERE (date/100) % 100=(?) AND category=(?);''',(month,category,) )
+        cur.execute('''SELECT * from transactions WHERE (date/100) % 100=(?) AND category=(?);''',(month,cat,) )
         tuples = cur.fetchall()
         con.commit()
         con.close()

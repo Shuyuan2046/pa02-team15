@@ -94,6 +94,19 @@ def test_showdb():
 @pytest.mark.summarize_by_month_cat
 def test_summarize_by_month_cat(small_db):
     ''' teting the summarize_by_month_cat function '''
-    ans = small_db.summarize_by_month_cat('03', 'food')
+    ans = small_db.summarize_by_month_cat(3, 'food')
     assert len(ans) == 2
 
+#Jing Cheng
+@pytest.mark.summarize_by_month
+def test_summarize_by_month(small_db):
+    ''' teting the summarize_by_month_cat function '''
+    ans = small_db.summarize_by_month(3)
+    assert len(ans) == 3
+
+#Jing Cheng
+@pytest.mark.summarize_by_category
+def test_summarize_by_category(small_db):
+    ''' teting the summarize_by_month_cat function '''
+    ans = small_db.summarize_by_category('food')
+    assert len(ans) == 2
