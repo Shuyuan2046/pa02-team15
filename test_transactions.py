@@ -105,6 +105,14 @@ def test_summarize_by_year(small_db):
     assert len(ans) == 3
 
 #Jing Cheng
+@pytest.mark.summarize_by_date
+def test_summarize_by_date(small_db):
+    ''' teting the summarize_by_month_cat function '''
+    ans = small_db.summarize_by_date(16)
+    assert len(ans) == 1
+    assert ans[0]['item'] == 'ipad'
+
+#Jing Cheng
 @pytest.mark.summarize_by_category
 def test_summarize_by_category(small_db):
     ''' teting the summarize_by_month_cat function '''
