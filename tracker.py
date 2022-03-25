@@ -58,6 +58,7 @@ menu = '''
 13. summarize transactions by recent years
 14. show db
 15. summarize transactions by amount
+16. check if the item exits in the database
 '''
 
 
@@ -136,6 +137,10 @@ def process_choice(choice):
     elif choice == '15':
         asw = input("enter the amount of items' transaction you want to see: ")
         trans = transactions.summarize_by_amount(asw)
+        print_transactions(trans)
+    elif choice == '16':
+        asw = input("What item do you want to check: ")
+        trans = transactions.check_item(asw)
         print_transactions(trans)
     else:
         print("choice",choice,"not yet implemented")

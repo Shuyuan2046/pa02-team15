@@ -134,6 +134,15 @@ class Transaction():
         con.commit()
         con.close()
         return to_trans_dict_list(tuples)
+    
+    def check_item(self, item):
+        con= sqlite3.connect(self.dbfile)
+        cur = con.cursor()
+        cur.execute('''SELECT * from transactions WHERE item=(?);''',(item,) )
+        tuples = cur.fetchall()
+        con.commit()
+        con.close()
+        return to_trans_dict_list(tuples)
 
 
     
