@@ -90,4 +90,10 @@ def test_showdb():
     assert a['date']==20220318
     assert a['description']=='testDesc'
 
+#Jing Cheng
+@pytest.mark.summarize_by_month_cat
+def test_summarize_by_month_cat(small_db):
+    ''' teting the summarize_by_month_cat function '''
+    ans = small_db.summarize_by_month_cat('03', 'food')
+    assert len(ans) == 2
 
