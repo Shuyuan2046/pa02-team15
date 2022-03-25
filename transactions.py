@@ -125,7 +125,8 @@ class Transaction():
         con.commit()
         con.close()
         return to_trans_dict_list(tuples)
-
+    
+    #Lu Hao
     def summarize_by_amount(self, amount):
         con= sqlite3.connect(self.dbfile)
         cur = con.cursor()
@@ -135,6 +136,7 @@ class Transaction():
         con.close()
         return to_trans_dict_list(tuples)
     
+    #Lu Hao
     def check_item(self, item):
         con= sqlite3.connect(self.dbfile)
         cur = con.cursor()

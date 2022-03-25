@@ -110,3 +110,18 @@ def test_summarize_by_category(small_db):
     ''' teting the summarize_by_month_cat function '''
     ans = small_db.summarize_by_category('food')
     assert len(ans) == 2
+    
+
+#Lu Hao
+@pytest.mark.summarize_by_amount
+def test_summarize_by_category(small_db):
+    ''' teting the summarize_by_amount function '''
+    ans = small_db.summarize_by_amount('1')
+    assert len(ans) == 3
+    
+#Lu Hao
+@pytest.mark.check_item
+def test_check_item(small_db):
+    ''' teting the summarize_by_amount function '''
+    ans = small_db.check_item('apple')
+    assert len(ans) == 1
