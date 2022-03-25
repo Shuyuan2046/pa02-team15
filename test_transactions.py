@@ -125,6 +125,13 @@ def test_summarize_by_name_year(small_db):
     ans = small_db.summarize_by_name_year('apple', 2022)
     assert len(ans) == 1
 
+#Lingyu Liu
+@pytest.mark.summarize_by_recent_year
+def test_summarize_by_recent_year(small_db):
+    ''' teting the summarize_by_recent_year function '''
+    ans = small_db.summarize_by_recent_year(2022)
+    assert len(ans) == 3
+
 
 
 

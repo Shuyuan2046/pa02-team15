@@ -4,6 +4,7 @@ pylint: No problems have been detected in the workplace.
 
 #Lingyu Liu: 
 transactions.py : show_db: show the datas in db
+                  summarize_by_recent_year: summarize from starting year
                   summarize_by_name_year: summarize by input name and year
 
-test_transactions.py: test_summarize_by_name_year, test_showdb
+test_transactions.py: test_summarize_by_name_year, test_showdb, test_summarize_by_recent_year
