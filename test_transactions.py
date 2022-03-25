@@ -80,15 +80,8 @@ def test_delete(small_db):
     assert len(cats0)==len(cats2)
     assert len(cats2) == len(cats1)-1  
 
-@pytest.mark.showdb
-def test_showdb():
-    ''' teting the to_trans_dict function '''
-    a = to_trans_dict(('testItem',1,'testCategory',20220318,'testDesc'))
-    assert a['item']=='testItem'
-    assert a['amount']==1
-    assert a['category']=='testCategory'
-    assert a['date']==20220318
-    assert a['description']=='testDesc'
+
+
 
 #Jing Cheng
 @pytest.mark.summarize_by_month_cat
@@ -110,7 +103,30 @@ def test_summarize_by_category(small_db):
     ''' teting the summarize_by_month_cat function '''
     ans = small_db.summarize_by_category('food')
     assert len(ans) == 2
-    
+
+
+
+#Lingyu Liu
+@pytest.mark.showdb
+def test_showdb():
+    ''' teting the to_trans_dict function '''
+    a = to_trans_dict(('testItem',1,'testCategory',20220318,'testDesc'))
+    assert a['item']=='testItem'
+    assert a['amount']==1
+    assert a['category']=='testCategory'
+    assert a['date']==20220318
+    assert a['description']=='testDesc'
+    assert len(a) == 5
+
+#Lingyu Liu
+@pytest.mark.summarize_by_name_year
+def test_summarize_by_name_year(small_db):
+    ''' teting the summarize_by_name_year function '''
+    ans = small_db.summarize_by_name_year('apple', 2022)
+    assert len(ans) == 1
+
+
+
 
 #Lu Hao
 @pytest.mark.summarize_by_amount
