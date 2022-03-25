@@ -59,6 +59,7 @@ menu = '''
 14. show db
 15. summarize transactions by amount
 16. check if the item exits in the database
+17. summarize trasactions by month and category
 '''
 
 
@@ -141,6 +142,12 @@ def process_choice(choice):
     elif choice == '16':
         asw = input("What item do you want to check: ")
         trans = transactions.check_item(asw)
+        print_transactions(trans)
+    #Jing Cheng
+    elif choice == '17':
+        asw = int(input("enter the month of transaction you want to see: "))
+        cat = input("enter the category of transaction you want to see: ")
+        trans = transactions.summarize_by_month_cat(asw,cat)
         print_transactions(trans)
     else:
         print("choice",choice,"not yet implemented")
